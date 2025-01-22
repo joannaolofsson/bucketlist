@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Bucket List</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=delete" />
+  <link href="https://fonts.cdnfonts.com/css/clover-2" rel="stylesheet">
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <h1>Min Bucket List</h1>
+      <form id="bucketForm">
+        <input type="text" id="activityName" class="activityName" placeholder="Vad vill du göra?" required />
+        <select id="activityCategory" class="selectCategory">
+          <option value="">Välj kategori</option>
+          <option value="Travel">Resor</option>
+          <option value="Challenges">Äventyr</option>
+          <option value="Learning">Lärande</option>
+          <option value="Fun">Hobby</option>
+        </select>
+        <button type="submit" id="addBtn">Lägg till</button>
+      </form>
+      <ul></ul>
+      <table id="bucketTable">
+        <tr>
+          <td>Done</td>
+          <td>Activity</td>
+          <td>
+            <div class="custom-select">
+              <select id="categoryFilter" class="categoryFilter">
+                <option value="">Choose Type</option>
+                <option value="Travel">Travel</option>
+                <option value="Challenges">Challenges</option>
+                <option value="Learning">Learning</option>
+                <option value="Fun">Fun</option>
+              </select>
+            </div>
+          </td>
+          <td>Delete</td>
+        </tr>
+      </table>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>
