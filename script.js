@@ -1,5 +1,5 @@
 
-//Starta med en tom array som håller alla aktiviteter
+// Tom array
 let activityArray = [];
 
 const activityEl = document.getElementById('activityName');
@@ -8,10 +8,8 @@ const button = document.getElementById('addBtn');
 const selectEl = document.getElementById('categoryFilter');
 const bucketForm = document.getElementById('bucketForm');
 
-
 bucketForm.addEventListener('submit', (event) => {
   event.preventDefault();
-
 
   // Mitt object
   const activityItem = {
@@ -19,7 +17,7 @@ bucketForm.addEventListener('submit', (event) => {
     category: categoryEl.value
   };
 
-  // Pusha obj till array
+  // Pusha object till array
   activityArray.push(activityItem);
 
   // Reset input
@@ -29,25 +27,21 @@ bucketForm.addEventListener('submit', (event) => {
 })
 
 // Lägg till ny aktivitet
-
 function addListeners() {
   button.addEventListener('click', addEntry, false);
   selectEl.addEventListener('change', filterEntries, false);
 }
 
 function addEntry() {
-
   let inputValue = activityEl.value
   let inputValue2 = categoryEl.value;
 
-
-  // Add a new row
-
+  // Lägg till en ny rad
   let table = document.getElementById('bucketTable');
   let trEl = document.createElement('tr');
   table.appendChild(trEl);
 
-  //checkbox cell
+  //checkbox ruta
   let checkboxEl = document.createElement('input');
   checkboxEl.type = "checkbox";
   checkboxEl.addEventListener('click', done, false);
@@ -55,17 +49,17 @@ function addEntry() {
   tdEl1.appendChild(checkboxEl);
   trEl.appendChild(tdEl1);
 
-  // To do cell
+  // Namnen på aktiviteterna
   let tdEl2 = document.createElement('td');
   tdEl2.innerText = inputValue;
   trEl.appendChild(tdEl2);
 
-  // Category cell
+  // Category cell - VIsar de olika kategorierna
   let tdEl3 = document.createElement('td');
   tdEl3.innerText = inputValue2;
   trEl.appendChild(tdEl3);
 
-  // delete cell
+  // delete cell genom att trycka på soptunnan
   let spanEl = document.createElement('span');
   spanEl.innerText = "delete";
   spanEl.classList = "material-symbols-outlined";
@@ -79,12 +73,14 @@ function addEntry() {
     row.remove();
   }
 
+  // Klarmarkerar genom att klicka i checkboxen
   function done(event) {
     const row = event.target.closest('tr');
     row.classList.toggle('strike');
   }
 }
 
+// Här är filtreringen där användaren kan välja att se alla kategorier eller samtliga
 function filterEntries() {
   let selection = selectEl.value;
 

@@ -6,72 +6,77 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-color: #1e1f23;
+    --font-color-primary: #A6A9AA;
+    --font-color-secondary: #c99d7f;
+    --border-color: #6b6f72;
+    --padding-small: 1rem;
+    --padding-medium: 2rem;
+    --padding-large: 3rem;
+    --padding-xl: 4rem;
+}
+
 body {
     font-family: "Montserrat", serif;   
-    background-color: #1e1f23;
+    background-color: var(--bg-color);
     height: 100vh;
+    
 }
 
 h1 {
     font-family: "EB Garamond", serif;
-    color: #6b6f72;
+    color: var(--font-color-primary);
     font-weight: 400;
     font-size: 3rem;
     text-align: center;
 }
 
-h2 {
-    font-family: "EB Garamond", serif;
-}
-
-p {
-font-family: "Montserrat", serif;
-}
-
 .container {
     max-width: 700px;
-    margin: 1rem auto;
-    border: 1px solid #6b6f72;
-    padding: 1rem 2rem;
+    margin: 0 auto;
+    border: 1px solid var(--border-color);
+    padding: var(--padding-small ) var(--padding-small) var(--padding-medium) var(--padding-small);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding-bottom: 1.5rem;
-}
-
-#bucketForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    gap: .7rem;
-}
-
-.activityName {
+input {
     width: 100%;
     margin: 0 auto;
     flex: 1;
     padding: .75rem;
-    border: 1px solid #6b6f72;
-    color: #d3d4d5;
+    border: 1px solid var(--border-color);
     font-family: "Montserrat", serif;
-    background-color: #1e1f23;  
+    font-size: 1rem;
+    background-color: var(--bg-color);  /* Kan detta vara ett transparent fält */
+    color: var(--font-color-secondary);
 }
 
-.selectCategory {
+input::placeholder{
+    color: #c99d7f;
+  }
+
+select {
     width: 100%;
     margin: 0 auto;
+    flex: 1;
     padding: .75rem;
-    border: 1px solid #6b6f72;
-    color: #d3d4d5;
+    border: 1px solid var(--border-color);
     font-family: "Montserrat", serif;
-    background-color: #1e1f23;   
+    background-color: var(--bg-color); 
+    font-size: 1rem;  
+}
+
+form #activityCategory {
+    color: var(--font-color-secondary);
 }
 
 button {
@@ -81,10 +86,10 @@ button {
     justify-content: center;
     align-items: center;
     padding: .5rem 1rem;
-    background-color: transparent;
-    color: #c99d7f;
+    background-color: var(--bg-color);   
+    color: var(--font-color-secondary);
     font-weight: 600;
-    border: 1px solid #6b6f72;
+    border: 1px solid var(--border-color);
     cursor: pointer;
 }
 
@@ -93,29 +98,33 @@ input:checked + span{
 } 
 
 tr {
-    border-bottom: 1px solid #6b6f72;
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    color: #6b6f72;
+    align-items: center;   
 }
 
 td {
     font-family: "Montserrat", serif;
-    padding:  .3rem .7rem;
+    padding:  .3rem .5rem;
     text-transform: capitalize;
-    justify-content: space-between;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color-primary);
 }
 
-.categoryFilter {
-    padding: .3rem;
-    background-color: #1e1f23;
-    color: #fff;
+.custom-select #categoryFilter {
     border: none;
+    color: var(--font-color-primary);
+    padding: .1rem;
 }
-
 
 .strike {
     text-decoration: line-through;
+}
+
+.checkmark {
+    padding-right: .2rem;
 }
